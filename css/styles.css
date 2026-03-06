@@ -11,8 +11,8 @@
   --gray: 46 47 66;
   --white: #fff;
   --dairy: #fcfcfc;
-  --font-family: "Roboto", sans-serif;
-  --second-family: "Raleway", sans-serif;
+  --font-family: 'Roboto', sans-serif;
+  --second-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -122,7 +122,7 @@ a {
 }
 
 .nav-link::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: -1px;
@@ -187,7 +187,7 @@ a {
   padding: 188px 0;
   background-image:
     linear-gradient(rgba(var(--gray) / 0.7), rgba(var(--gray) / 0.7)),
-    url("../images/people-office.jpg");
+    url('../images/people-office.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -553,4 +553,209 @@ a {
 
 .footer-social-icon {
   fill: var(--cloud);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--navy-blue-modal);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 408px;
+  height: 584px;
+  transform: translate(-50%, -50%);
+  padding: 72px 24px 0 24px;
+  background-color: var(--dairy);
+  border-radius: 4px;
+  box-shadow:
+    0 2px 1px rgba(0 0 0 / 0.20),
+    0 1px 1px rgba(0 0 0 / 0.12),
+    0 1px 6px rgba(0 0 0 / 0.14);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--navy-blue);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(0 0 0 / 0.1);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--navy-blue);
+  margin-bottom: 16px;
+}
+
+.modal-label {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--light-slate);
+  margin-bottom: 8px;
+}
+
+.modal-label.comment-label {
+  margin-bottom: 16px;
+}
+
+.modal-label .label-text {
+  margin-bottom: 4px;
+}
+
+.modal-label.checkbox-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.custom-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--navy-blue-modal);
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: transparent;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-checkbox:checked + .custom-checkbox {
+  background-color: var(--ocean);
+  border: none;
+  fill: var(--cloud);
+}
+
+.privacy-policy {
+  color: var(--iris);
+  text-decoration: underline;
+}
+
+.modal-input,
+.modal-textarea {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--navy-blue);
+  border-radius: 4px;
+  border: 1px solid var(--navy-blue-modal);
+  padding: 11px 8px 11px 38px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-wrap {
+  width: 100%;
+  position: relative;
+}
+
+.modal-input:focus + .modal-icon {
+  fill: var(--iris);
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  transform: translateY(-50%);
+  fill: var(--navy-blue);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-textarea {
+  height: 120px;
+  padding-left: 16px;
+}
+
+.modal-textarea::placeholder {
+  color: var(--navy-blue-modal);
+}
+
+.modal-input:focus,
+.modal-textarea:focus {
+  outline: none;
+  border-color: var(--iris);
+}
+
+.modal-button {
+  display: block;
+  min-width: 169px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background-color: var(--iris);
+  border-radius: 4px;
+  border: none;
+  padding: 16px 32px;
+  margin: 0 auto;
+  outline: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  background-color: var(--ocean);
 }
